@@ -120,7 +120,7 @@ class FileController extends Controller
             $max = File::max('id') + 1;
             
             $file = File::where('hash_name', $hashName)->first();
-            if ($file) {
+            if (! $file) {
                 $myfile->store('file');
             }
             
@@ -130,7 +130,6 @@ class FileController extends Controller
                     str_replace("." . $ext, "(" . $max . ")." .$ext, $originalName);
             $file->hash_name = $hashName;
             $file->content_type = $myfile->getMimeType();
-            
             $file->save();
             
             return $this->response([
