@@ -1,5 +1,4 @@
 # Zalora test
-***
 
 ## Feature
 - GET/api/file
