@@ -26,7 +26,7 @@ $ git clone git@github.com:hunggau/zalora-test.git
 $ sudo chown www-data:www-data -R storage/
 $ sudo chown www-data:www-data -R bootstrap/cache
 $ sudo chmod 755 -R storage/
-$ sudo chmod 755 -R bootstrap/cache
+$ sudo chmod 755 -R bootstrap/cache/
 ```
 
 - Run command to install database
