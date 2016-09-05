@@ -1,0 +1,133 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Zalora test API",
+        "contact": {
+            "name": "HungTran",
+            "email": "mhungou04@gmail.com"
+        },
+        "version": "0.8.24"
+    },
+    "basePath": "/research/laravel5/zaltest/public/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/file": {
+            "get": {
+                "tags": [
+                    "Get Files"
+                ],
+                "summary": "Get list file avaiable",
+                "description": "",
+                "operationId": "listFiles",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "503": {
+                        "description": "File list is empty"
+                    }
+                }
+            }
+        },
+        "/file/download/{originalName}": {
+            "get": {
+                "tags": [
+                    "Download file"
+                ],
+                "summary": "Download file with original name",
+                "description": "",
+                "operationId": "downloadFile",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "originalName",
+                        "in": "path",
+                        "description": "File orignal name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "503": {
+                        "description": "File not found"
+                    }
+                }
+            }
+        },
+        "/file/upload": {
+            "post": {
+                "tags": [
+                    "Upload file"
+                ],
+                "summary": "Upload single file",
+                "description": "",
+                "operationId": "uploadFile",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "myfile",
+                        "in": "formData",
+                        "description": "Browse a file to upload",
+                        "required": true,
+                        "type": "file"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "503": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/file/delete/{originalName}": {
+            "delete": {
+                "tags": [
+                    "Delete file"
+                ],
+                "summary": "Delete a file storage on server.",
+                "description": "",
+                "operationId": "Delete file",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "originalName",
+                        "in": "path",
+                        "description": "File name to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "503": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
